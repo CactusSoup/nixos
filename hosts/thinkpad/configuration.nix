@@ -121,6 +121,8 @@
     ripgrep
     wl-clipboard-x11
     python3
+    maven
+    ant
   ];
 
   fonts.packages = with pkgs; [
