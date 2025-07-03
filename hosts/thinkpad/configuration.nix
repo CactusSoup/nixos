@@ -109,6 +109,7 @@
     lazygit
     feh
     mr
+    mpc
   ];
 
   fonts.packages = with pkgs; [
