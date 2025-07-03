@@ -110,6 +110,17 @@
     feh
     mr
     mpc
+    mycli
+    mariadb.client
+    unzip
+    gum
+    pv
+    jq
+    wget
+    fd
+    ripgrep
+    wl-clipboard-x11
+    python3
   ];
 
   fonts.packages = with pkgs; [
