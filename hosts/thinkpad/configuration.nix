@@ -5,11 +5,10 @@
 { config, pkgs, inputs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.default
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.default
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -19,7 +18,6 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -63,14 +61,12 @@
     isNormalUser = true;
     description = "Tom";
     extraGroups = [ "networkmanager" "wheel" "input" "docker" ];
-    packages = with pkgs; [];
+    packages = with pkgs; [ ];
   };
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
-    users = {
-      "tom" = import ./home.nix;
-    };
+    users = { "tom" = import ./home.nix; };
   };
 
   # Enable automatic login for the user.
@@ -82,8 +78,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  wget
     kitty
     swww
     waybar
@@ -123,13 +119,17 @@
     python3
     maven
     ant
+    openvpn
+    openconnect
+    killall
+    inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
   ];
 
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
     nerd-fonts.droid-sans-mono
   ];
-  virtualisation.docker.enable = true; 
+  virtualisation.docker.enable = true;
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -158,9 +158,7 @@
   system.stateVersion = "25.05"; # Did you read the comment?i
 
   programs.hyprland.enable = true;
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-  };
+  environment.sessionVariables = { NIXOS_OZONE_WL = "1"; };
 
   programs.firefox.enable = true;
   security.rtkit.enable = true;
@@ -173,18 +171,19 @@
   services.mpd = {
     enable = true;
     extraConfig = ''
-      audio_output {
-         type "pipewire"
-	 name "My Pipewire Output"
-      }
+            audio_output {
+               type "pipewire"
+      	 name "My Pipewire Output"
+            }
     '';
     musicDirectory = "/home/tom/media/music";
     user = "tom";
   };
   systemd.services.mpd.environment = {
-   # https://gitlab.freedesktop.org/pipewire/pipewire/-/issues/609
-   XDG_RUNTIME_DIR = "/run/user/1000"; # User-id 1000 must match above user. MPD will look inside this directory for the PipeWire socket.
-   };
+    # https://gitlab.freedesktop.org/pipewire/pipewire/-/issues/609
+    XDG_RUNTIME_DIR =
+      "/run/user/1000"; # User-id 1000 must match above user. MPD will look inside this directory for the PipeWire socket.
+  };
   services.syncthing = {
     enable = true;
     openDefaultPorts = true;
