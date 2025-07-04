@@ -69,6 +69,7 @@
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
+    EDITOR = "nvim";
   };
 
   # Let Home Manager install and manage itself.
@@ -76,7 +77,7 @@
 
   programs.git = {
     enable = true;
-    userName = "Tom Morgan";
+    userName = "Thomas Morgan";
     userEmail = "thomas.morgan@avtura.com";
   };
 }
