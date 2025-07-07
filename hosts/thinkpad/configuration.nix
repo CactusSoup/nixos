@@ -123,6 +123,7 @@
     openconnect
     killall
     inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
+    wlogout
   ];
 
   fonts.packages = with pkgs; [
@@ -200,4 +201,6 @@
   };
   programs.starship.enable = true;
   programs.zoxide.enable = true;
+
+  programs.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
 }
