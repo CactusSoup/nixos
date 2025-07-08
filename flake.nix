@@ -26,6 +26,13 @@
           inputs.home-manager.nixosModules.default
         ];
       };
+      avtura = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/avtura/configuration.nix
+          inputs.home-manager.nixosModules.default
+       ];
+      };
     };
   };
 }
