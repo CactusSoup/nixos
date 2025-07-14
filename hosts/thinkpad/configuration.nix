@@ -203,4 +203,10 @@
   programs.zoxide.enable = true;
 
   programs.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
+
+  services.ollama = {
+    enable = true;
+    loadModels = [ "gemma3:4b" "deepseek-r1:1.5b" ];
+    acceleration = "rocm";
+  };
 }
