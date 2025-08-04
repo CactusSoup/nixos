@@ -98,7 +98,6 @@
     keepassxc
     google-chrome
     jdk
-    rustup
     yt-dlp
     playerctl
     stow
@@ -124,6 +123,28 @@
     killall
     inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
     wlogout
+    lazydocker
+    pastel
+    caligula
+    astroterm
+    dysk
+    bat
+    eza
+    xh
+    zellij
+    dust
+    yazi
+    hyperfine
+    bacon
+    rusty-man
+    delta
+    tokei
+    protonvpn-gui
+    cargo
+    rustc
+    rustfmt
+    clippy
+    qbittorrent
   ];
 
   fonts.packages = with pkgs; [
