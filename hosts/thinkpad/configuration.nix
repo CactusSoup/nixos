@@ -145,6 +145,7 @@
     rustfmt
     clippy
     qbittorrent
+    nicotine-plus
   ];
 
   fonts.packages = with pkgs; [
