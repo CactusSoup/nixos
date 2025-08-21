@@ -120,6 +120,7 @@
     wget
     fd
     ripgrep
+    wl-clipboard
     wl-clipboard-x11
     python3
     maven
