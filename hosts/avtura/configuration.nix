@@ -124,6 +124,29 @@
     killall
     inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
     wlogout
+    lazydocker
+    pastel
+    caligula
+    astroterm
+    dysk
+    bat
+    eza
+    xh
+    zellij
+    dust
+    yazi
+    hyperfine
+    bacon
+    rusty-man
+    delta
+    tokei
+    protonvpn-gui
+    cargo
+    rustc
+    rustfmt
+    clippy
+    qbittorrent
+    nicotine-plus
   ];
 
   fonts.packages = with pkgs; [
