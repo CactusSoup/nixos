@@ -10,6 +10,12 @@
     inputs.home-manager.nixosModules.default
   ];
 
+  # Graphics
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -228,7 +234,7 @@
 
   services.ollama = {
     enable = true;
-    loadModels = [ "gemma3:4b" "deepseek-r1:1.5b" ];
     acceleration = "rocm";
+    rocmOverrideGfx = "11.0.2";
   };
 }
