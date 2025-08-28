@@ -20,6 +20,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Use Nix-LD
+  programs.nix-ld.enable = true;
+
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 

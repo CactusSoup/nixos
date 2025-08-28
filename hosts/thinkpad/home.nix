@@ -79,5 +79,6 @@
     enable = true;
     userName = "Thomas Morgan";
     userEmail = "thomas.morgan@avtura.com";
+    extraConfig = { pull.rebase = true; };
   };
 }
