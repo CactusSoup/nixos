@@ -156,6 +156,7 @@
     clippy
     qbittorrent
     nicotine-plus
+    nodejs
   ];
 
   fonts.packages = with pkgs; [
@@ -241,4 +242,6 @@
     acceleration = "rocm";
     rocmOverrideGfx = "11.0.2";
   };
+
+  services.tlp = { enable = true; };
 }
