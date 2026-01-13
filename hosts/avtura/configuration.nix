@@ -146,6 +146,7 @@
     qbittorrent
     nicotine-plus
     nodejs
+    hyprshot
   ];
 
   fonts.packages = with pkgs; [
